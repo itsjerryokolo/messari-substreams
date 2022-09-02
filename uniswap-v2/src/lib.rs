@@ -1,7 +1,6 @@
-use substreams::{log, proto, store, Hex};
+use substreams::{log, proto, store, hex, Hex};
 use substreams_ethereum::{Event as EventTrait, pb::eth::v2 as eth};
-use substreams_helper::{erc20, utils};
-
+use substreams_helper::{erc20, utils, types};
 use abi::factory;
 
 use pb::common;
@@ -11,9 +10,8 @@ use pb::uniswap_v2;
 mod abi;
 mod pb;
 
-type Address = [u8; 20];
 
-pub const UNISWAP_V2_FACTORY: Address = hex!("5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f");
+pub const UNISWAP_V2_FACTORY: types::Address = hex!("5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f");
 pub const UNISWAP_V2_FACTORY_START_BLOCK: u64 = 10_000_835;
 
 trait BlockExt {
